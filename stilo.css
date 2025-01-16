@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(./imagenes/Fondo\ Marroncito_Mesa\ de\ trabajo\ 1.png);
+    background-size: contain;
+}
+
+.magazine {
+    position: relative;
+    width: 600px;
+    height: 900px;
+    margin: 30px auto;
+    margin-top: 7px;
+    margin-bottom: 0px;
+    perspective: 1500px; /* Da profundidad 3D */
+}
+
+.page {
+    position: absolute;
+    width: 600px;
+    height: 900px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform-origin: left;
+    transform: rotateY(0deg);
+    transition: transform 0.8s ease-in-out; /* Animación del volteo */
+    backface-visibility: hidden; /* Oculta la parte trasera */
+}
+
+.page.hidden {
+    visibility: hidden;
+}
+
+.page.active {
+    z-index: 10;
+    transform: rotateY(0deg);
+}
+
+.page.previous {
+    z-index: 5;
+    transform: rotateY(-180deg); /* Página volteada */
+}
+
+.page.next {
+    z-index: 5;
+    transform: rotateY(180deg); /* Página volteada */
+}
+
+.page .content {
+    padding: 20px;
+    text-align: center;
+}
+
+.page img {
+    width: 100%;
+    height: 100%;
+}
